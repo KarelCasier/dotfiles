@@ -1,0 +1,1 @@
+/Users/karel.casier/.dotfiles/misc/NeoVim.app

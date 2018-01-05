@@ -1,0 +1,14 @@
+[alias]
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+[user]
+	name = Your Name
+	email = your_email@gmail.com
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[help]
+	autocorrect = 1
