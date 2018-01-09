@@ -37,6 +37,9 @@ denite {{{1
 Find File                <c-p>         N
 Find Buffer              <c-b>         N
 Find Text                <Space>/      N
+Buffer line-up           <c-j>         N
+Buffer line-down         <c-k>         N
+Enter search buffer      <c-o>         N
 }}}
 tagbar {{{1
 Toggle TagBar            :TagBar       N
