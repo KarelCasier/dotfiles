@@ -2,7 +2,7 @@
 " TODO "
 """"""""
 " Organize plugins and configurations into separate files
-" Add more commands to cheat40.txt
+" Add more commands to cheat40.txt - maybe switch to https://github.com/vimwiki/vimwiki instead!
 """"""""
 
 """""""""""""""
@@ -65,10 +65,10 @@ Plug 'ryanoasis/vim-devicons'                       " Icons next to filenames
 "Plug 'xolox/vim-easytags'                           " Run :UpdateTags
 
 " Misc Languages
-Plug 'elzr/vim-json', { 'for': 'json' }            " JSON highlighting
-Plug 'peterhoeg/vim-qml', { 'for': 'qml' }         " QML highligting
-Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js'] }       " JSX highlighting
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'elzr/vim-json', { 'for': 'json' }              " JSON highlighting
+Plug 'peterhoeg/vim-qml', { 'for': 'qml' }           " QML highligting
+Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js'] }         " JSX highlighting
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }     " MD highlighting
 
 " Colorschemes
 Plug 'ajh17/Spacegray.vim'
@@ -100,14 +100,19 @@ catch
   " No such file? No problem; just ignore it.
 endtry
 
-""""""""
-" Tags "
-""""""""
+""""""""""""""""""""""""""""""""""""""""""""
+" Tags                                     "
+" see http://vim.wikia.com/wiki/VimTip1608 "
+""""""""""""""""""""""""""""""""""""""""""""
 " Recurse up to home folder looking for tag files
 set tags=./tags,./TAGS,tags;~,TAGS;~
 " Updates tags using config file
 :command! UpdateTags !ctags .
 :command! ClangFormatDirectory !find . -iname *.~/.hpp -o -iname *.cpp | xargs clang-format -i
+
+"""""""""""
+" General "
+"""""""""""
 
 set guifont=UbuntuMono\ Nerd\ Font:h12
 set background=dark
@@ -333,4 +338,3 @@ set shiftwidth=4
 
 set smarttab
 set smartindent
-
