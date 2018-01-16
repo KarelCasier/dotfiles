@@ -1,7 +1,9 @@
 mafredri/zsh-async
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
+RobSis/zsh-completion-generator
 rupa/z
+b4b4r07/enhancd
 
 # these should be at last!
 sindresorhus/pure

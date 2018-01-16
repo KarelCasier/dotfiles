@@ -42,6 +42,7 @@ brew 'thefuck'
 brew 'jrnl'
 brew 'tree'
 brew 'mas'
+brew 'fzy'
 
 #Casks
 cask 'cheatsheet'

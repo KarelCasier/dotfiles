@@ -1,6 +1,7 @@
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES=$HOME/.dotfiles
 
+# load plugins
 source <(antibody init)
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
@@ -48,3 +49,5 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+export EDITOR='nvim'
+export VISUAL='nvim'

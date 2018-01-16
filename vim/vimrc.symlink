@@ -39,7 +39,7 @@ Plug 'mkitt/tabline.vim'                            " Cleaner tabs
 Plug 'nathanaelkane/vim-indent-guides'              " Show indents
 Plug 'qpkorr/vim-bufkill'                           " Delete file buffer without deleting split (:BD rather then :bd)
 Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }     " for .clang-format (:ClangFormat)
-Plug 'scrooloose/nerdcommenter'                     " comment
+Plug 'scrooloose/nerdcommenter'                     " commenting
 Plug 'scrooloose/nerdtree'                          " File tree browser
 Plug 'tpope/vim-abolish'                            " Flexible search
 Plug 'tpope/vim-fugitive'                           " Git integration
@@ -54,6 +54,7 @@ Plug 'vim-syntastic/syntastic', { 'for': 'cpp' }    " Syntax checking
 Plug 'wellle/targets.vim'                           " Additional text objects
 Plug 'zhaocai/GoldenView.Vim'                       " Resize splits automatically
 Plug 'ryanoasis/vim-devicons'                       " Icons next to filenames
+Plug 'ludovicchabant/vim-gutentags'                 " Automatic background tag generation
 "Plug 'chilicuil/vim-sprunge'                        " Paste selection to sprunge
 "Plug 'chrisbra/Colorizer'                           " Show hex codes as colours
 "Plug 'kopischke/vim-fetch'                          " Use line numbers in file paths
@@ -62,25 +63,26 @@ Plug 'ryanoasis/vim-devicons'                       " Icons next to filenames
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 "Plug 'triglav/vim-visual-increment'                 " Increment over visual selection
 "Plug 'undofile_warn.vim'                            " Warn old undo
-"Plug 'xolox/vim-easytags'                           " Run :UpdateTags
 
 " Misc Languages
 Plug 'elzr/vim-json', { 'for': 'json' }              " JSON highlighting
 Plug 'peterhoeg/vim-qml', { 'for': 'qml' }           " QML highligting
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js'] }         " JSX highlighting
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }     " MD highlighting
+Plug 'othree/xml.vim', {'for': ['xml', 'xmd', 'xslt'] } " XML highlighting
 
 " Colorschemes
+"Plug 'flazz/vim-colorschemes'
+"Plug 'chriskempson/base16-vim'
 Plug 'ajh17/Spacegray.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'andreasvc/vim-256noir'
-Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim'
-Plug 'flazz/vim-colorschemes'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-two-firewatch'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dikiaap/minimalist'
 
 " Utilities
 " Create tables automatically using '|', TableToggleMode, then || after first column
@@ -103,23 +105,23 @@ endtry
 """"""""""""""""""""""""""""""""""""""""""""
 " Tags                                     "
 " see http://vim.wikia.com/wiki/VimTip1608 "
+" Updates tags using config file           "
 """"""""""""""""""""""""""""""""""""""""""""
 " Recurse up to home folder looking for tag files
 set tags=./tags,./TAGS,tags;~,TAGS;~
-" Updates tags using config file
-:command! UpdateTags !ctags .
 :command! ClangFormatDirectory !find . -iname *.~/.hpp -o -iname *.cpp | xargs clang-format -i
 
 """""""""""
 " General "
 """""""""""
 
-set guifont=UbuntuMono\ Nerd\ Font:h12
+set guifont=UbuntuMono\ Nerd\ Font:h13
 set background=dark
 colorscheme gruvbox
 "colorscheme materialbox
 "colorscheme dracula
 "colorscheme nord
+"colorscheme two-firewatch
 
 nnoremap <leader>rn :edit ~/.config/nvim/init.vim<CR>
 nnoremap <leader>rv :edit ~/.vimrc<CR>
@@ -203,12 +205,6 @@ let g:NERDCompactSexyComs = 1
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-
-"""""""""""
-" argwrap "
-"""""""""""
-nnoremap <silent> <leader>a :ArgWrap<CR>
-let g:argwrap_padded_braces = '{'
 
 """"""""""
 " Denite "
@@ -301,6 +297,9 @@ let g:syntastic_cpp_checkers = ['clang', 'cpplint']
 """"""""""""""""
 " clang-format "
 """"""""""""""""
+" default file is ~/.clang-format
+" if dotfiles is installed
+""""""""""""""""
 let g:clang_format#detect_style_file = 1
 
 """"""""""""""""""
@@ -319,6 +318,16 @@ let g:DoxygenToolkit_briefTag_pre=""
 let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_returnTag="@return "
 let g:DoxygenToolkit_commentType = "C++"
+
+""""""""""""""
+" chromatica "
+""""""""""""""
+" TODO: Check startup impact of this (mdfind is faster then find)
+" Note: Some colorschemes may look bad with this on
+""""""""""""""
+let g:chromatica#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+"let g:chromatica#libclang_path=system('mdfind -name libclang.dylib')
+let g:chromatica#enable_at_startup=1
 
 """""""""""
 " vim-jsx "
