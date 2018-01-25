@@ -43,6 +43,7 @@ brew 'jrnl'
 brew 'tree'
 brew 'mas'
 brew 'fzy'
+brew 'ranger'
 
 #Casks
 cask 'cheatsheet'

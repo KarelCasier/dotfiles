@@ -18,27 +18,24 @@
 """""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' } " Used for grep in project, <space>/ for word search, <C-p> for files
-Plug 'SirVer/ultisnips', { 'for': 'cpp' }           " Snipit engine (YCM addition)
-Plug 'honza/vim-snippets'                           " Default snippets for ultisnips
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer', 'for': 'cpp' } "Autocomplete suggestions
 Plug 'Xuyuanp/nerdtree-git-plugin'                  " Git for NerdTree
 Plug 'airblade/vim-gitgutter'                       " Git in the gutter
-Plug 'arakashic/chromatica.nvim', { 'for': 'cpp','do': ':UpdateRemotePlugins' } " Syntax highlighting using libclang and .clang_complete
-Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }        " Modern C++ syntax highlighing (replaces vim-cpp-enhanced-highlight)
 Plug 'bronson/vim-trailing-whitespace'              " Remove trailing whitespace
 Plug 'easymotion/vim-easymotion'                    " Cursor navigation
 Plug 'gabesoft/vim-ags'                             " Silver Surfer Plugin, use: Ags {pattern}
+Plug 'haya14busa/incsearch-fuzzy.vim'               " Fuzzy incsearch
+Plug 'haya14busa/incsearch.vim'                     " Highlight all matches incrementally
+Plug 'honza/vim-snippets'                           " Default snippets for ultisnips
 Plug 'jistr/vim-nerdtree-tabs'                      " NerdTree independent of tabs
 Plug 'junegunn/rainbow_parentheses.vim'             " Colour matched brackets
 Plug 'junegunn/vim-peekaboo'                        " Previews registers when using (\" or @)
 Plug 'kshenoy/vim-signature'                        " Show marks
 Plug 'lifepillar/vim-cheat40'                       " Vim cheatsheet (<leader>?)
-Plug 'majutsushi/tagbar', { 'for': 'cpp' }          " Displays class tags in sidebar (:TagBar)
-Plug 'michaeljsmith/vim-indent-object'              " Indented text object
+Plug 'ludovicchabant/vim-gutentags'                 " Automatic background tag generation
 Plug 'mkitt/tabline.vim'                            " Cleaner tabs
-Plug 'nathanaelkane/vim-indent-guides'              " Show indents
 Plug 'qpkorr/vim-bufkill'                           " Delete file buffer without deleting split (:BD rather then :bd)
-Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }     " for .clang-format (:ClangFormat)
+Plug 'ryanoasis/vim-devicons'                       " Icons next to filenames
 Plug 'scrooloose/nerdcommenter'                     " commenting
 Plug 'scrooloose/nerdtree'                          " File tree browser
 Plug 'tpope/vim-abolish'                            " Flexible search
@@ -49,31 +46,33 @@ Plug 'tpope/vim-sleuth'                             " Sets tabs/spaces based on 
 Plug 'tpope/vim-surround'                           " Operate on surrounding
 Plug 'vim-airline/vim-airline'                      " Lightweight powerline
 Plug 'vim-scripts/DoxygenToolkit.vim'               " Generate doxygen comments (:Dox)
-Plug 'vim-scripts/a.vim', { 'for': 'cpp' }          " Switch between header/source (:A)
-Plug 'vim-syntastic/syntastic', { 'for': 'cpp' }    " Syntax checking
 Plug 'wellle/targets.vim'                           " Additional text objects
 Plug 'zhaocai/GoldenView.Vim'                       " Resize splits automatically
-Plug 'ryanoasis/vim-devicons'                       " Icons next to filenames
-Plug 'ludovicchabant/vim-gutentags'                 " Automatic background tag generation
-"Plug 'chilicuil/vim-sprunge'                        " Paste selection to sprunge
 "Plug 'chrisbra/Colorizer'                           " Show hex codes as colours
 "Plug 'kopischke/vim-fetch'                          " Use line numbers in file paths
 "Plug 'matze/vim-move'                               " Move lines up and down
 "Plug 'mhinz/vim-startify'                           " Start up screen
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 "Plug 'triglav/vim-visual-increment'                 " Increment over visual selection
-"Plug 'undofile_warn.vim'                            " Warn old undo
+
+" C++ Specific
+Plug 'SirVer/ultisnips', { 'for': 'cpp' }           " Snipit engine (YCM addition)
+Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }        " Modern C++ syntax highlighing (replaces vim-cpp-enhanced-highlight)
+Plug 'majutsushi/tagbar', { 'for': 'cpp' }          " Displays class tags in sidebar (:TagBar)
+Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }     " for .clang-format (:ClangFormat)
+Plug 'vim-scripts/a.vim', { 'for': 'cpp' }          " Switch between header/source (:A)
+Plug 'vim-syntastic/syntastic', { 'for': 'cpp' }    " Syntax checking
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+"Plug 'jeaye/color_coded', { 'for': 'cpp', 'do' : ':call Install_Color_Coded' }
+
 
 " Misc Languages
 Plug 'elzr/vim-json', { 'for': 'json' }              " JSON highlighting
-Plug 'peterhoeg/vim-qml', { 'for': 'qml' }           " QML highligting
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js'] }         " JSX highlighting
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }     " MD highlighting
 Plug 'othree/xml.vim', {'for': ['xml', 'xmd', 'xslt'] } " XML highlighting
+Plug 'peterhoeg/vim-qml', { 'for': 'qml' }           " QML highligting
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }     " MD highlighting
 
 " Colorschemes
-"Plug 'flazz/vim-colorschemes'
-"Plug 'chriskempson/base16-vim'
 Plug 'ajh17/Spacegray.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'andreasvc/vim-256noir'
@@ -115,7 +114,6 @@ set tags=./tags,./TAGS,tags;~,TAGS;~
 " General "
 """""""""""
 
-set guifont=UbuntuMono\ Nerd\ Font:h13
 set background=dark
 colorscheme gruvbox
 "colorscheme materialbox
@@ -142,6 +140,10 @@ map <C-h> <C-w><Left>
 " Switch to alternate file
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
+" Enable 'visual' movement (if a line is wrapped this allows moving to wrapped
+" lines
+nnoremap j gj
+nnoremap k gk
 
 " All yanking uses system clipboard
 set clipboard=unnamed
@@ -177,6 +179,15 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline_powerline_fonts = 1
+" Minimal flat edges
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = '|'
 
 """"""""""""
 " NERDTree "
@@ -187,8 +198,8 @@ map <C-f> :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDChristmasTree=1
 let g:NERDTreeChDirMode=2
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 "let g:NERDTreeDirArrowExpandable = '├'
 "let g:NERDTreeDirArrowCollapsible = '└'
 let g:NERDTreeMapActivateNode = '<tab>'
@@ -198,13 +209,14 @@ set mouse=a
 " NERDCommenter "
 """""""""""""""""
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 0
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+let g:NERDUsePlaceHolders=1
 
 """"""""""
 " Denite "
@@ -319,15 +331,30 @@ let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_returnTag="@return "
 let g:DoxygenToolkit_commentType = "C++"
 
-""""""""""""""
-" chromatica "
-""""""""""""""
-" TODO: Check startup impact of this (mdfind is faster then find)
-" Note: Some colorschemes may look bad with this on
-""""""""""""""
-let g:chromatica#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-"let g:chromatica#libclang_path=system('mdfind -name libclang.dylib')
-let g:chromatica#enable_at_startup=1
+"""""""""""""
+" incsearch "
+"""""""""""""
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+"""""""""""""""""""
+" incsearch-fuzzy "
+"""""""""""""""""""
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+
+""""""""""""""""""""""""""""""
+" vim-cpp-enhanced-highlight "
+""""""""""""""""""""""""""""""
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
+"let g:cpp_experimental_simple_template_highlight = 1
+"or
+let g:cpp_experimental_template_highlight = 1
 
 """""""""""
 " vim-jsx "
