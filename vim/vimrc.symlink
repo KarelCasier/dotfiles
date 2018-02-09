@@ -167,6 +167,16 @@ try
 catch
 endtry
 
+if exists('$ITERM_PROFILE')
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+end
+
 """"""""""""""""""""""""
 " Plugin Configuration "
 """"""""""""""""""""""""
@@ -217,6 +227,7 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDUsePlaceHolders=1
+let g:NERDTreeQuitOnOpen=1
 
 """"""""""
 " Denite "
@@ -251,6 +262,8 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf="~/.ycm_extra_conf.py"
 let g:ycm_collect_identifiers_from_tags_files = 1
+" Jump to errors: ':lne or :lnext' and ':lpe or :lprevious'
+let g:ycm_always_populate_location_list = 1
 nnoremap <leader>df :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>dl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>

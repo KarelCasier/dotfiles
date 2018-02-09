@@ -44,6 +44,7 @@ brew 'tree'
 brew 'mas'
 brew 'fzy'
 brew 'ranger'
+brew 'terminal-notifier'
 
 #Casks
 cask 'cheatsheet'

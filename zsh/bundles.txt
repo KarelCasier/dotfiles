@@ -1,8 +1,8 @@
 mafredri/zsh-async
-zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
 RobSis/zsh-completion-generator
-b4b4r07/enhancd
+marzocchi/zsh-notify
+zsh-users/zsh-completions
+changyuheng/zsh-interactive-cd
 
 # these should be at last!
 sindresorhus/pure
