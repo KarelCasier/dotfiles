@@ -28,7 +28,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'               " Fuzzy incsearch
 Plug 'haya14busa/incsearch.vim'                     " Highlight all matches incrementally
 Plug 'honza/vim-snippets'                           " Default snippets for ultisnips
 Plug 'jistr/vim-nerdtree-tabs'                      " NerdTree independent of tabs
-Plug 'junegunn/rainbow_parentheses.vim'             " Colour matched brackets
+Plug 'luochen1990/rainbow'                          " Colour matched brackets
 Plug 'junegunn/vim-peekaboo'                        " Previews registers when using (\" or @)
 Plug 'kshenoy/vim-signature'                        " Show marks
 Plug 'lifepillar/vim-cheat40'                       " Vim cheatsheet (<leader>?)
@@ -45,14 +45,9 @@ Plug 'tpope/vim-sensible'                           " Sensible defaults
 Plug 'tpope/vim-sleuth'                             " Sets tabs/spaces based on file
 Plug 'tpope/vim-surround'                           " Operate on surrounding
 Plug 'vim-airline/vim-airline'                      " Lightweight powerline
-Plug 'vim-scripts/DoxygenToolkit.vim'               " Generate doxygen comments (:Dox)
 Plug 'wellle/targets.vim'                           " Additional text objects
 Plug 'zhaocai/GoldenView.Vim'                       " Resize splits automatically
-"Plug 'chrisbra/Colorizer'                           " Show hex codes as colours
-"Plug 'kopischke/vim-fetch'                          " Use line numbers in file paths
-"Plug 'matze/vim-move'                               " Move lines up and down
-"Plug 'mhinz/vim-startify'                           " Start up screen
-"Plug 'triglav/vim-visual-increment'                 " Increment over visual selection
+Plug 'sbdchd/neoformat'                             " Formatter that supports many file types
 
 " C++ Specific
 Plug 'SirVer/ultisnips', { 'for': 'cpp' }           " Snipit engine (YCM addition)
@@ -62,8 +57,8 @@ Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }     " for .clang-format (:ClangF
 Plug 'vim-scripts/a.vim', { 'for': 'cpp' }          " Switch between header/source (:A)
 Plug 'vim-syntastic/syntastic', { 'for': 'cpp' }    " Syntax checking
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'cpp' } " Generate doxygen comments (:Dox)
 "Plug 'jeaye/color_coded', { 'for': 'cpp', 'do' : ':call Install_Color_Coded' }
-
 
 " Misc Languages
 Plug 'elzr/vim-json', { 'for': 'json' }              " JSON highlighting
@@ -120,6 +115,9 @@ colorscheme gruvbox
 "colorscheme dracula
 "colorscheme nord
 "colorscheme two-firewatch
+
+" Fixes tmux draw issue
+set nolazyredraw
 
 nnoremap <leader>rn :edit ~/.config/nvim/init.vim<CR>
 nnoremap <leader>rv :edit ~/.vimrc<CR>
@@ -250,10 +248,11 @@ call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap
 call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 
-"""""""""""""""""""""""
-" rainbow-parentheses "
-"""""""""""""""""""""""
-:au VimEnter * RainbowParentheses
+"""""""""""
+" rainbow "
+"""""""""""
+:au VimEnter * RainbowToggleOn
+let g:rainbow_active=1
 
 """""""""""""""""
 " YouCompleteMe "
