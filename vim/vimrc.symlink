@@ -26,7 +26,6 @@ Plug 'easymotion/vim-easymotion'                    " Cursor navigation
 Plug 'gabesoft/vim-ags'                             " Silver Surfer Plugin, use: Ags {pattern}
 Plug 'haya14busa/incsearch-fuzzy.vim'               " Fuzzy incsearch
 Plug 'haya14busa/incsearch.vim'                     " Highlight all matches incrementally
-Plug 'honza/vim-snippets'                           " Default snippets for ultisnips
 Plug 'jistr/vim-nerdtree-tabs'                      " NerdTree independent of tabs
 Plug 'luochen1990/rainbow'                          " Colour matched brackets
 Plug 'junegunn/vim-peekaboo'                        " Previews registers when using (\" or @)
@@ -44,20 +43,20 @@ Plug 'tpope/vim-repeat'                             " Repeat plugins
 Plug 'tpope/vim-sensible'                           " Sensible defaults
 Plug 'tpope/vim-sleuth'                             " Sets tabs/spaces based on file
 Plug 'tpope/vim-surround'                           " Operate on surrounding
+Plug 'tpope/vim-rhubarb'                            " Open github links
 Plug 'vim-airline/vim-airline'                      " Lightweight powerline
 Plug 'wellle/targets.vim'                           " Additional text objects
 Plug 'zhaocai/GoldenView.Vim'                       " Resize splits automatically
+Plug 'christoomey/vim-tmux-navigator'				" Navigate between tmux panes and vim splits
 Plug 'sbdchd/neoformat'                             " Formatter that supports many file types
 
 " C++ Specific
-Plug 'SirVer/ultisnips', { 'for': 'cpp' }           " Snipit engine (YCM addition)
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }        " Modern C++ syntax highlighing (replaces vim-cpp-enhanced-highlight)
 Plug 'majutsushi/tagbar', { 'for': 'cpp' }          " Displays class tags in sidebar (:TagBar)
 Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }     " for .clang-format (:ClangFormat)
 Plug 'vim-scripts/a.vim', { 'for': 'cpp' }          " Switch between header/source (:A)
-Plug 'vim-syntastic/syntastic', { 'for': 'cpp' }    " Syntax checking
+"Plug 'vim-syntastic/syntastic', { 'for': 'cpp' }    " Syntax checking
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': 'cpp' } " Generate doxygen comments (:Dox)
 "Plug 'jeaye/color_coded', { 'for': 'cpp', 'do' : ':call Install_Color_Coded' }
 
 " Misc Languages
@@ -68,15 +67,15 @@ Plug 'peterhoeg/vim-qml', { 'for': 'qml' }           " QML highligting
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }     " MD highlighting
 
 " Colorschemes
-Plug 'ajh17/Spacegray.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'andreasvc/vim-256noir'
-Plug 'dracula/vim'
+"Plug 'ajh17/Spacegray.vim'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'andreasvc/vim-256noir'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'dikiaap/minimalist'
+"Plug 'dracula/vim'
+"Plug 'rakr/vim-two-firewatch'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-two-firewatch'
-Plug 'arcticicestudio/nord-vim'
-Plug 'dikiaap/minimalist'
 
 " Utilities
 " Create tables automatically using '|', TableToggleMode, then || after first column
@@ -108,13 +107,8 @@ set tags=./tags,./TAGS,tags;~,TAGS;~
 """""""""""
 " General "
 """""""""""
-
 set background=dark
 colorscheme gruvbox
-"colorscheme materialbox
-"colorscheme dracula
-"colorscheme nord
-"colorscheme two-firewatch
 
 " Fixes tmux draw issue
 set nolazyredraw
@@ -130,11 +124,12 @@ nnoremap <leader>rc :edit ~/.config/nvim/cheat40.txt<CR>
 """""""""""""""
 " Key Mapping "
 """""""""""""""
+" Replaced by christoomey/vim-tmux-navigator
 "Map ctrl-movement keys to window switching
-map <C-k> <C-w><Up>
-map <C-j> <C-w><Down>
-map <C-l> <C-w><Right>
-map <C-h> <C-w><Left>
+"map <C-k> <C-w><Up>
+"map <C-j> <C-w><Down>
+"map <C-l> <C-w><Right>
+"map <C-h> <C-w><Left>
 " Switch to alternate file
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
@@ -208,8 +203,6 @@ let g:NERDChristmasTree=1
 let g:NERDTreeChDirMode=2
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
-"let g:NERDTreeDirArrowExpandable = '├'
-"let g:NERDTreeDirArrowCollapsible = '└'
 let g:NERDTreeMapActivateNode = '<tab>'
 set mouse=a
 
@@ -248,6 +241,17 @@ call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap
 call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 
+""""""""""""
+" deoplete "
+""""""""""""
+
+"let g:deoplete#enable_at_startup=1
+"let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+""let g:deoplete#sources#clang#libclang_path=system('mdfind -name libclang.dylib')
+"let g:deoplete#sources#clang#clang_header='/Library/Developer/CommandLineTools/usr/lib/clang'
+"let g:deoplete#sources#clang#clang_complete_database='~/dev/black-coral'
+
+
 """""""""""
 " rainbow "
 """""""""""
@@ -268,26 +272,6 @@ nnoremap <leader>dl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
-
-"""""""""""""
-" ultisnips "
-"""""""""""""
-" Allows <ENTERR> to do completions in ycm menu and still use it as a <CR>
-" when not in the menu. From https://github.com/SirVer/ultisnips/issues/376
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-let g:UltiSnipsExpandTrigger="<NUL>"
-let g:ulti_expand_or_jump_res = 0
-function! <SID>ExpandSnippetOrReturn()
-  let snippet = UltiSnips#ExpandSnippetOrJump()
-  if g:ulti_expand_or_jump_res > 0
-    return snippet
-  else
-    return "\<CR>"
-  endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
-
 
 """""""""""""""
 " easy-motion "
@@ -335,14 +319,6 @@ let g:cpp_class_member_highlight = 1
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
-""""""""""""""""""
-" DoxygenToolkit "
-""""""""""""""""""
-let g:DoxygenToolkit_briefTag_pre=""
-let g:DoxygenToolkit_paramTag_pre="@param "
-let g:DoxygenToolkit_returnTag="@return "
-let g:DoxygenToolkit_commentType = "C++"
-
 """""""""""""
 " incsearch "
 """""""""""""
@@ -376,7 +352,7 @@ let g:jsx_ext_required = 0
 
 """"""""""""""""""""
 " Coding Standards "
-" """"""""""""""""""
+""""""""""""""""""""
 " May already be   "
 " set by default   "
 """"""""""""""""""""

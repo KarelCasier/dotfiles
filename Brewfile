@@ -29,6 +29,7 @@ brew 'imagemagick'
 brew 'neovim'
 brew 'the_silver_searcher'
 brew 'tldr'
+brew 'ruby'
 brew 'tmux'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ["HEAD"]
 brew 'valgrind'
@@ -45,6 +46,7 @@ brew 'mas'
 brew 'fzy'
 brew 'ranger'
 brew 'terminal-notifier'
+brew 'tmuxinator-completion'
 
 #Casks
 cask 'cheatsheet'

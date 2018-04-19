@@ -1,29 +1,29 @@
+###################
+## CONFIGURATION ##
+###################
+
 # Force reload of config file
 unbind r
 bind r source-file ~/.tmux.conf
 
-# Vim fixes
+#-----------#
+# Vim fixes #
+#-----------#
+
 # Fix slow escape key in vim
 set -sg escape-time 0
 # Cursor shape not changing
-#set -g -a terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
-
 set -g -a terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
 
-# improve colors
+#---------#
+# General #
+#---------#
+
+# Improve colors
 set -g default-terminal 'screen-256color'
 
-# set prefix to <C-s>
+# Set prefix to <C-s>
 set -g prefix2 C-s
-
-# act like vim
-setw -g mode-keys vi
-bind-key h select-pane -L
-bind-key j select-pane -D
-bind-key k select-pane -U
-bind-key l select-pane -R
-bind-key -r C-h select-window -t :-
-bind-key -r C-l select-window -t :+
 
 # Window Cycle/Swap
 bind e previous-window
@@ -38,16 +38,12 @@ bind - split-window -v
 # Clickable panes
 set-option -g mouse on
 
-# start window numbers at 1 to match keyboard order with tmux window order
+# Start window numbers at 1 to match keyboard order with tmux window order
 set -g base-index 1
 set-window-option -g pane-base-index 1
 
-# renumber windows sequentially after closing any of them
+# Renumber windows sequentially after closing any of them
 set -g renumber-windows on
-
-# soften status bar color from harsh green to light gray
-set -g status-bg '#666666'
-set -g status-fg '#aaaaaa'
 
 # remove administrative debris (session name, hostname, time) in status bar
 set -g status-left ''
@@ -64,10 +60,10 @@ bind-key C-s send-prefix -2
 # don't suspend-client
 unbind-key C-z
 
-# Local config
-if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'
-
 setw -g pane-border-status bottom
+
+# Load Local config
+if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'
 
 ###############################
 ## COLORSCHEME: gruvbox dark ##
@@ -128,10 +124,18 @@ set-option -g status-right "#[fg=colour239, bg=colour237, nobold, nounderscore, 
 set-window-option -g window-status-current-format "#[fg=colour239, bg=colour248, :nobold, noitalics, nounderscore]#[fg=colour239, bg=colour214] #I |#[fg=colour239, bg=colour214, bold] #W #[fg=colour214, bg=colour237, nobold, noitalics, nounderscore]"
 set-window-option -g window-status-format "#[fg=colour237,bg=colour239,noitalics]#[fg=colour223,bg=colour239] #I |#[fg=colour223, bg=colour239] #W #[fg=colour239, bg=colour237, noitalics]"
 
+#############
+## PLUGINS ##
+#############
+
 # Persist sessions through reboot
 # Save: prefix + <C-s>
 # Restore: prefix + <C-r>
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Smart pane switching with awareness of Vim splits.
+# Use C-hjkl and C-\ to navigate vim and tmux panes (requires corresponding vim plugin)
+set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Persist vim sessions as well
 # for vim
