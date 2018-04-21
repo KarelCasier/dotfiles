@@ -65,6 +65,10 @@ Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js'] }         " JSX highlighting
 Plug 'othree/xml.vim', {'for': ['xml', 'xmd', 'xslt'] } " XML highlighting
 Plug 'peterhoeg/vim-qml', { 'for': 'qml' }           " QML highligting
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }     " MD highlighting
+Plug 'pboettch/vim-cmake-syntax'
+
+Plug 'junegunn/goyo.vim'
+Plug 'amix/vim-zenroom2'
 
 " Colorschemes
 "Plug 'ajh17/Spacegray.vim'
@@ -102,7 +106,7 @@ endtry
 """"""""""""""""""""""""""""""""""""""""""""
 " Recurse up to home folder looking for tag files
 set tags=./tags,./TAGS,tags;~,TAGS;~
-:command! ClangFormatDirectory !find . -iname *.~/.hpp -o -iname *.cpp | xargs clang-format -i
+:command! ClangFormatDirectory !find . -iname *.hpp -o -iname *.cpp | xargs clang-format -i
 
 """""""""""
 " General "
@@ -298,9 +302,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_compiler = 'clang'
-let g:syntastic_cpp_compiler_options = '-std=c++14'
+let g:syntastic_cpp_compiler_options = '-std=c++17'
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_cpp_checkers = ['clang', 'cpplint']
+let g:syntastic_quiet_messages = { 'regex': 'legal/copyright' }
 
 """"""""""""""""
 " clang-format "

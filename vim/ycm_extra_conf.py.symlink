@@ -15,7 +15,7 @@ BASE_FLAGS = [
          '-fexceptions',
          '-ferror-limit=10000',
          '-DNDEBUG',
-         '-std=c++14',
+         '-std=c++17',
          '-xc++',
          '-I/usr/lib/',
          '-I/usr/include/',
@@ -44,8 +44,10 @@ HEADER_DIRECTORIES = [
 
 # Used to search for compile_commands.json files
 BUILD_DIRECTORIES = [
-        'kbuild',
         'build'
+        'hbuild'
+        'kbuild',
+        'out'
         ]
 
 def IsHeaderFile(filename):
