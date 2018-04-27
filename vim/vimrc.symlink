@@ -80,6 +80,7 @@ Plug 'amix/vim-zenroom2'
 "Plug 'rakr/vim-two-firewatch'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
 " Utilities
 " Create tables automatically using '|', TableToggleMode, then || after first column
@@ -111,6 +112,10 @@ set tags=./tags,./TAGS,tags;~,TAGS;~
 """""""""""
 " General "
 """""""""""
+if has('nvim') || has('termguicolors')
+    set termguicolors
+endif
+
 set background=dark
 colorscheme gruvbox
 
