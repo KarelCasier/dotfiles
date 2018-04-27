@@ -4,3 +4,5 @@ alias vim="nvim"
 eval $(thefuck --alias)
 
 alias mux="tmuxinator"
+
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"

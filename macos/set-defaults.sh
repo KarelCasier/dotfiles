@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "› System:"
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -12,6 +14,9 @@ mkdir -p "$HOME/Screenshots"
 
 # Save screenshots to the ~/Screenshots folder
 defaults write com.apple.screencapture location -string "$HOME/Screenshots"
+
+# Disable the 'Are you sure you want to open this application?' dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -90,6 +95,12 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Enable spring-loading directories and decrease default delay.
   /usr/bin/defaults write NSGlobalDomain com.apple.springing.enabled -bool  true
 /usr/bin/defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
+
+# Always open everything in Finder's list view
+defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+
+# Save to disk by default, instead of iCloud
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false<Paste>
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
