@@ -14,6 +14,9 @@ cask 'font-ubuntu'
 cask 'font-ubuntumono-nerd-font'
 
 #Formulas
+brew 'bash'
+brew 'make'
+brew 'vim', args: ["with-override-system-vi"]
 brew 'git'
 brew 'python'
 brew 'python3'
@@ -24,7 +27,6 @@ brew 'cmake'
 brew 'cscope'
 brew 'diff-so-fancy'
 brew 'ffmpeg'
-brew 'gnu-sed', args: ["with-default-names"]
 brew 'imagemagick'
 brew 'neovim'
 brew 'the_silver_searcher'
@@ -40,13 +42,17 @@ brew 'zsh-autosuggestions'
 brew 'getantibody/tap/antibody'
 brew 'node'
 brew 'thefuck'
-brew 'jrnl'
 brew 'tree'
 brew 'mas'
 brew 'fzy'
 brew 'ranger'
 brew 'terminal-notifier'
 brew 'tmuxinator-completion'
+
+# GNU tools
+brew 'coreutils'
+brew 'gnu-sed', args: ["with-default-names"]
+brew 'gnu-which', args: ["with-default-names"]
 
 #Casks
 cask 'cheatsheet'
