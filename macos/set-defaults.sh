@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "› System:"
+echo "› macos/set-defaults.sh"
 
 # Ask for the administrator password upfront
 sudo -v
@@ -100,7 +100,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Save to disk by default, instead of iCloud
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false<Paste>
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
