@@ -50,22 +50,24 @@ Plug 'zhaocai/GoldenView.Vim'                       " Resize splits automaticall
 Plug 'christoomey/vim-tmux-navigator'				" Navigate between tmux panes and vim splits
 Plug 'sbdchd/neoformat'                             " Formatter that supports many file types
 
-" C++ Specific
+" C++
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }        " Modern C++ syntax highlighing (replaces vim-cpp-enhanced-highlight)
 Plug 'majutsushi/tagbar', { 'for': 'cpp' }          " Displays class tags in sidebar (:TagBar)
 Plug 'rhysd/vim-clang-format', { 'for': 'cpp' }     " for .clang-format (:ClangFormat)
 Plug 'vim-scripts/a.vim', { 'for': 'cpp' }          " Switch between header/source (:A)
-"Plug 'vim-syntastic/syntastic', { 'for': 'cpp' }    " Syntax checking
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-"Plug 'jeaye/color_coded', { 'for': 'cpp', 'do' : ':call Install_Color_Coded' }
+
+" JS
+Plug 'pangloss/vim-javascript', { 'for': ['jsx', 'js'] }    " JS support
+Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js'] }                " JSX highlighting
+Plug 'w0rp/ale', { 'for': ['jsx', 'js'] }                   " JS syntax
 
 " Misc Languages
-Plug 'elzr/vim-json', { 'for': 'json' }              " JSON highlighting
-Plug 'mxw/vim-jsx', { 'for': ['jsx', 'js'] }         " JSX highlighting
-Plug 'othree/xml.vim', {'for': ['xml', 'xmd', 'xslt'] } " XML highlighting
-Plug 'peterhoeg/vim-qml', { 'for': 'qml' }           " QML highligting
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }     " MD highlighting
-Plug 'pboettch/vim-cmake-syntax'
+Plug 'elzr/vim-json', { 'for': 'json' }                     " JSON highlighting
+Plug 'othree/xml.vim', {'for': ['xml', 'xmd', 'xslt'] }     " XML highlighting
+Plug 'peterhoeg/vim-qml', { 'for': 'qml' }                  " QML highligting
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }            " MD highlighting
+Plug 'pboettch/vim-cmake-syntax', { 'for': 'cmake' }        " CMake highlighting
 
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
@@ -112,11 +114,12 @@ set tags=./tags,./TAGS,tags;~,TAGS;~
 """""""""""
 " General "
 """""""""""
-if has('nvim') || has('termguicolors')
-    set termguicolors
-endif
+"if has('nvim') || has('termguicolors')
+    "set termguicolors
+"endif
 
 set background=dark
+"colorscheme challenger_deep
 colorscheme gruvbox
 
 " Fixes tmux draw issue
@@ -143,7 +146,7 @@ nnoremap <leader>rc :edit ~/.config/nvim/cheat40.txt<CR>
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
 " Enable 'visual' movement (if a line is wrapped this allows moving to wrapped
-" lines
+" lines)
 nnoremap j gj
 nnoremap k gk
 

@@ -48,6 +48,7 @@ brew 'fzy'
 brew 'ranger'
 brew 'terminal-notifier'
 brew 'tmuxinator-completion'
+brew 'llvm', args: ["with-toolchain"]
 
 # GNU tools
 brew 'coreutils'

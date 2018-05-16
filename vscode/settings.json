@@ -8,5 +8,6 @@
             "before": ["k"],
             "after": ["g", "k"]
         }
-    ]
+    ],
+    "window.zoomLevel": 0
 }
