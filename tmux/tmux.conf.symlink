@@ -6,6 +6,8 @@
 unbind r
 bind r source-file ~/.tmux.conf
 
+bind -n C-k clear-history
+
 #-----------#
 # Vim fixes #
 #-----------#
@@ -128,20 +130,9 @@ set-window-option -g window-status-format "#[fg=colour237,bg=colour239,noitalics
 ## PLUGINS ##
 #############
 
-# Persist sessions through reboot
-# Save: prefix + <C-s>
-# Restore: prefix + <C-r>
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-
 # Smart pane switching with awareness of Vim splits.
 # Use C-hjkl and C-\ to navigate vim and tmux panes (requires corresponding vim plugin)
 set -g @plugin 'christoomey/vim-tmux-navigator'
-
-# Persist vim sessions as well
-# for vim
-set -g @resurrect-strategy-vim 'session'
-# for neovim
-set -g @resurrect-strategy-nvim 'session'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

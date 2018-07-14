@@ -12,4 +12,14 @@ brew bundle --ignore-failures -v
 
 echo "› installing topics"
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+find . -name install.sh | while read installer ; do
+    echo "${installer}";
+    sh -c "${installer}" ;
+done
+
+echo "› brew cleanup and doctor"
+brew update
+brew upgrade
+brew prune
+brew cleanup
+brew doctor

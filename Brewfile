@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/completions'
 tap 'homebrew/core'
 tap 'homebrew/bundle'
+tap "homebrew/cask-fonts"
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'neovim/neovim'
@@ -49,8 +50,13 @@ brew 'ranger'
 brew 'terminal-notifier'
 brew 'tmuxinator-completion'
 brew 'llvm', args: ["with-toolchain"]
+brew "gcc"
+brew "gdb"
+brew "htop"
+brew "ninja"
+brew "pandoc"
 
-# GNU tools
+#GNU tools
 brew 'coreutils'
 brew 'gnu-sed', args: ["with-default-names"]
 brew 'gnu-which', args: ["with-default-names"]
@@ -69,8 +75,10 @@ cask 'slack'
 cask 'sourcetree'
 cask 'spectacle'
 cask 'spotify'
+cask "spotify-notifications"
 cask 'visual-studio-code'
 cask 'the-unarchiver'
+cask 'iina'
 
 #Mac AppStore
 mas "Xcode", id: 497799835

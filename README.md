@@ -39,3 +39,7 @@ There's a few special files in the hierarchy.
 - setup iTerm2 themes
 
 - setup caps lock -> esc (can't find the `defaults write ...` command)
+
+- install vim plugins using `:PlugInstall` in vim
+
+- install tmux plugins using `<prexix-I>` in tmux

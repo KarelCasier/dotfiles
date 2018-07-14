@@ -1,6 +1,7 @@
-echo "› iterm/install.sh"
 
 [ "$(uname -s)" != "Darwin" ] && echo "› Skipping..." && exit 0
+
+echo "› setting up iTerm"
 
 # Specify the preferences directory
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "${DOTFILES}/iterm/profile"

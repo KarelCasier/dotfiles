@@ -1,6 +1,7 @@
-echo "› vscode/install.sh"
 
 if test "$(which code)"; then
+    echo "› linking vscode"
+
     if [ "$(uname -s)" = "Darwin" ]; then
         VSCODE_HOME="$HOME/Library/Application Support/Code"
     else
@@ -9,6 +10,8 @@ if test "$(which code)"; then
 
     ln -sf "$DOTFILES/vscode/settings.json" "$VSCODE_HOME/User/settings.json"
     ln -sf "$DOTFILES/vscode/keybindings.json" "$VSCODE_HOME/User/keybindings.json"
+
+    echo "› installing vscode plugins"
 
     # from `code --list-extensions`
     modules="

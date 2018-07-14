@@ -1,4 +1,4 @@
-echo "› git/install.sh"
+echo "› installing diff-so-fancy"
 
 # diff-so-fancy (git dsf)
 git config --global alias.dsf '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" '\

@@ -5,7 +5,7 @@
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 
-echo "› homebrew/install.sh"
+echo "› installing homebrew"
 
 # Check for Homebrew
 if test ! $(which brew); then
