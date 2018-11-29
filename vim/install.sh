@@ -2,8 +2,8 @@
 echo "› setting uo neovim"
 
 mkdir -p ~/.config/nvim/
-ln -s -f ${DOTFILES}/vim/init.vim ~/.config/nvim/init.vim
-ln -s -f ${DOTFILES}/vim/cheat40.txt ~/.config/nvim/cheat40.txt
+ln -f ${DOTFILES}/vim/init.vim ~/.config/nvim/init.vim
+ln -f ${DOTFILES}/vim/cheat40.txt ~/.config/nvim/cheat40.txt
 
 pip install setuptools
 pip install setuptools

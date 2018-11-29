@@ -49,6 +49,7 @@ Plug 'wellle/targets.vim'                           " Additional text objects
 Plug 'zhaocai/GoldenView.Vim'                       " Resize splits automatically
 Plug 'christoomey/vim-tmux-navigator'				" Navigate between tmux panes and vim splits
 Plug 'sbdchd/neoformat'                             " Formatter that supports many file types
+Plug 'djoshea/vim-autoread'                         " Auto-reload files when the change on disk
 
 " C++
 Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }        " Modern C++ syntax highlighing (replaces vim-cpp-enhanced-highlight)
