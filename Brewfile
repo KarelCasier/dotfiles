@@ -25,17 +25,14 @@ brew 'ag'
 brew 'bash-completion'
 brew 'clang-format'
 brew 'cmake'
-brew 'cscope'
 brew 'diff-so-fancy'
 brew 'ffmpeg'
 brew 'imagemagick'
 brew 'neovim'
 brew 'the_silver_searcher'
-brew 'tldr'
 brew 'ruby'
 brew 'tmux'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ["HEAD"]
-brew 'valgrind'
 brew 'youtube-dl'
 brew 'zsh'
 brew 'zsh-completions'
@@ -50,7 +47,7 @@ brew 'fzf'
 brew 'ranger'
 brew 'terminal-notifier'
 brew 'tmuxinator-completion'
-brew 'llvm', args: ["with-toolchain"]
+# brew 'llvm', args: ["with-toolchain"]
 brew "gcc"
 brew "gdb"
 brew "htop"
@@ -63,15 +60,12 @@ brew 'gnu-sed', args: ["with-default-names"]
 brew 'gnu-which', args: ["with-default-names"]
 
 #Casks
-cask 'cheatsheet'
 cask 'google-chrome'
 cask 'google-backup-and-sync'
 cask 'clipy'
 cask 'firefox'
 cask 'github'
 cask 'iTerm2'
-cask 'go2shell'
-cask 'postman'
 cask 'slack'
 cask 'sourcetree'
 cask 'spectacle'
