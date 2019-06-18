@@ -53,7 +53,7 @@ Plug 'tpope/vim-surround'                           " Operate on surrounding
 Plug 'tpope/vim-rhubarb'                            " Open github links
 Plug 'vim-airline/vim-airline'                      " Lightweight powerline
 Plug 'wellle/targets.vim'                           " Additional text objects
-Plug 'zhaocai/GoldenView.Vim'                       " Resize splits automatically
+Plug 'roman/golden-ratio'                           " Resize splits automatically
 Plug 'christoomey/vim-tmux-navigator'				" Navigate between tmux panes and vim splits
 Plug 'sbdchd/neoformat'                             " Formatter that supports many file types
 Plug 'djoshea/vim-autoread'                         " Auto-reload files when the change on disk
